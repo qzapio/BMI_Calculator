@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+</head>
+<style>
+    input[type = number]{
+        width:100%;
+        padding:12px;
+        margin:8px 0;
+        font-size: 20px;
+        display:inline-block; 
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+
+    }
+    
+input[type=submit] {
+  width: 25%;
+  background-color: #1a71e2e0;
+  color: white;
+  padding: 10px 2px;
+  margin: 8px 0;
+  font-size: 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #568ee2;
+ 
+}
+
+    .center {
+  margin: auto;
+  width: 50vh;
+  height:50vh;
+  border: 3px solid #73AD21;
+  padding: 10px;
+  border-radius:15px;
+        background-color:rgb(17, 73, 138);
+        padding:20px;
+}
+
+h1{
+    color:white;
+    text-align: center;
+}
+div{
+  width: 90%;
+  height: 15%;
+  background-color: whitesmoke;
+  color: rgb(51, 53, 56);
+  font-weight: bold;
+  padding: 14px 20px;
+  margin: 1px;
+  border: none;
+  border-radius: 14px;
+  font-size: 20px;
+
+}
+
+</style>
+<body>
+    <div class="center">
+    <h1>BMI Calculator</h1>
+    <input type="number" name="weightofperson" id="weight" placeholder="Enter your weight in kgs" value=''>
+    <input type="number" name="heightofperson" id="height" placeholder="Enter your height in meters" value =''>
+    <input type="submit" id="submitinput">
+    
+    <div id="result">Result  here</div>
+    </div>
+
+
+</body>
+<script>
+  
+
+submitinput.addEventListener("click",calculateBmi);
+function calculateBmi(){
+    let weightofperson = document.getElementById('weight').value;
+
+let heightofperson = document.getElementById('height').value;
+
+let bmi = (weightofperson)/(heightofperson*heightofperson);
+
+let resultbox =document.getElementById('result')
+console.log(resultbox.innerText)
+
+if(bmi<=18.4)
+{
+   resultbox.innerText=`Your BMI is ${bmi} which means You are Under Weight`
+   resultbox.style.backgroundColor='pink'
+    resultbox.style.color='white' 
+}
+else if(bmi>=18.5&&bmi<=24.9)
+{
+    resultbox.innerText= `Your BMI is ${bmi} which means You have Normal Weight`
+    resultbox.style.backgroundColor='green'
+    resultbox.style.color='white'
+}
+else if(bmi>=25&&bmi<=29.9)
+{
+    resultbox.innerText=`Your BMI is ${bmi} which means You  are Overweight`
+    resultbox.style.backgroundColor='red'
+    resultbox.style.color='white'
+}
+else{
+    resultbox.innerText=`Your BMI is ${bmi} which means You are Obese`
+    resultbox.style.backgroundColor='red'
+    resultbox.style.color='white'
+}
+}
+
+
+</script>
+</html>
